@@ -1,16 +1,11 @@
 const express = require("express");
-const mongoose = require("mongoose");
-require("dotenv").config();
+const connectDB = require("./config/db");
+require("dotenv").config({ path: "./config/.env" });
+
+// connectDB();
 
 const app = express();
-
-mongoose
-    .connect(process.env.MONGODB_ATLAS_URI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    })
-    .then(() => console.log("MongoDB connected"))
-    .catch((err) => console.log(err));
+app.use(express.json()); //Used to parse JSON bodies
 
 app.get("/", (req, res) => {
     res.send("Hello World");
