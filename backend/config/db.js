@@ -5,6 +5,7 @@ const connectDB = async () => {
         const conn = await mongoose.connect(process.env.MONGODB_ATLAS_URI, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
+            useCreateIndex: true,
         });
         console.log("MongoDB connected");
     } catch (err) {
