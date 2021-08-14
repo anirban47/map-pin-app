@@ -7,7 +7,7 @@ require("dotenv").config({ path: "./config/.env" });
 connectDB();
 
 const app = express();
-app.use(express.json({urlencoded: true})); 
+app.use(express.json({ urlencoded: true }));
 
 app.get("/", (req, res) => {
     res.send("Hello World");
